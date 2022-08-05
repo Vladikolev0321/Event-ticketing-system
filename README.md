@@ -1,5 +1,9 @@
 # Event-ticketing-system
 
+## Branching strategy
+For branching strategy i will be using Feature Branch Workflow.
+Reference:
+- https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow
 ## Commit message format:
 Format: 
 ```
