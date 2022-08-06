@@ -1,14 +1,12 @@
 <template>
-  <HomeComponent msg="Welcome to Your Vue.js App"/>
+  <router-view></router-view>
 </template>
 
 <script>
-import HomeComponent from './components/Home.vue'
 
 export default {
   name: 'App',
   components: {
-    HomeComponent
   }
 }
 </script>
