@@ -10,5 +10,5 @@ jobs:
               cd client
               npm ci
                ./node_modules/.bin/vue-cli-service build
-               ./node_modules/.bin/vue-cli-service test:unit
-               ./node_modules/.bin/vue-cli-service lint
+#               ./node_modules/.bin/vue-cli-service test:unit
+#               ./node_modules/.bin/vue-cli-service lint
