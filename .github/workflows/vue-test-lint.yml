@@ -7,6 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
+              cd client
               npm ci
               vue-cli-service build
               vue-cli-service test:unit
