@@ -6,16 +6,18 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <NavBar></NavBar>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-
+import NavBar from './components/NavBar.vue';
 export default {
   name: 'App',
   components: {
-  }
+    NavBar,
+}
 }
 </script>
 
@@ -28,4 +30,5 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
 </style>

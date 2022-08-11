@@ -1,28 +1,6 @@
 <template>
     <h1>Events</h1>
     <div>
-      <MDBNavbar class="nav" expand="lg" light bg="light" container>
-        <MDBNavbarToggler
-          target="#navbarCenterAlignExample"
-          @click="collapse6 = !collapse6"
-        ></MDBNavbarToggler>
-        <MDBCollapse id="navbarCenterAlignExample" v-model="collapse6">
-          <MDBNavbarNav center class="mb-2 mb-lg-0">
-            <MDBNavbarItem to="#" active>
-              Events
-            </MDBNavbarItem>
-            <MDBNavbarItem href="#" active>
-              Tickets for sale
-            </MDBNavbarItem>
-            <MDBNavbarItem href="#" active>
-              My events
-            </MDBNavbarItem>
-            <MDBNavbarItem href="#" active>
-              My tickets
-            </MDBNavbarItem>
-          </MDBNavbarNav>
-        </MDBCollapse>
-      </MDBNavbar>
       <MDBBtn color="dark" rounded>Create event</MDBBtn>
       <div class="cards-container d-flex flex-wrap">
         <li v-for="event in events" :key="event.name">
@@ -40,19 +18,17 @@
           </MDBCardBody>
           </MDBCard>
         </li>
-        
       </div>
-      
     </div>  
 </template>
 
 <script>
 import {
-    MDBNavbar,
-    MDBNavbarToggler,
-    MDBNavbarNav,
-    MDBNavbarItem,
-    MDBCollapse,
+    // MDBNavbar,
+    // MDBNavbarToggler,
+    // MDBNavbarNav,
+    // MDBNavbarItem,
+    // MDBCollapse,
     MDBBtn,
     MDBCard,
     MDBCardBody,
@@ -69,11 +45,11 @@ export default {
     msg: String
   },
   components: {
-      MDBNavbar,
-      MDBNavbarToggler,
-      MDBNavbarNav,
-      MDBNavbarItem,
-      MDBCollapse,
+      // MDBNavbar,
+      // MDBNavbarToggler,
+      // MDBNavbarNav,
+      // MDBNavbarItem,
+      // MDBCollapse,
       MDBBtn,
       MDBCard,
       MDBCardBody,
@@ -92,6 +68,18 @@ export default {
         },
         {
           name: 'Event 2',
+        },
+        {
+          name: 'Event 1',
+        },
+        {
+          name: 'Event 2',
+        },
+        {
+          name: 'Event 1',
+        },
+        {
+          name: 'Event 2',
         }
       ]
     }
@@ -104,8 +92,6 @@ export default {
 .cards-container {
   margin-top: 50px;
   gap: 10px;
-
-  /* justify-content: space-between; */
 }
 
 .card{
@@ -113,11 +99,7 @@ export default {
   width: 350px;
 }
 
-.nav {
-    margin-right: 100px;
-    margin-left: 100px;
-    margin-bottom: 20px;
-}
+
 h3 {
   margin: 40px 0 0;
 }

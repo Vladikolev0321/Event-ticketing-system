@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import EventsView from '../views/EventsView.vue'
+import CreateEvent from '../views/CreateEvent.vue'
+import MyEvents from '../views/MyEvents.vue'
 
 const routes = [
     { path: '/', redirect: '/home' },
@@ -7,6 +9,14 @@ const routes = [
       path: '/home',
       component: EventsView,
     },
+    {
+      path: '/createEvent',
+      component: CreateEvent,
+    },
+    {
+      path: '/myEvents',
+      component: MyEvents,
+    }
 ];
 
 
