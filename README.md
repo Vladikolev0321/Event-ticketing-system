@@ -19,5 +19,10 @@ Format:
 - `test`: (adding missing tests, refactoring tests; no production code change)
 - `chore`: (updating grunt tasks etc; no production code change)
 
+## Javascript convention
+- https://www.syncfusion.com/blogs/post/10-javascript-naming-conventions-every-developer-should-know.aspx
+## Vue convention
+- https://v2.vuejs.org/v2/style-guide
+
 Following:
 - https://www.conventionalcommits.org/en/v1.0.0/
