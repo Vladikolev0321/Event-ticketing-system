@@ -13,8 +13,8 @@
         <MDBCardBody>
           <MDBCardTitle>{{ event.name }}</MDBCardTitle>
           <MDBCardText>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+            Date: {{ event.startDate }} - {{ event.endDate }}
+            Location: {{ event.location }}
           </MDBCardText>
           <MDBBtn tag="a" href="#!" color="primary">Check out</MDBBtn>
         </MDBCardBody>
@@ -52,9 +52,15 @@ export default {
       events: [
         {
           name: "Event 1",
+          startDate: "01/01/2019",
+          endDate: "02/01/2019",
+          location: "Location 1",
         },
         {
           name: "Event 2",
+          startDate: "01/01/2019",
+          endDate: "02/01/2019",
+          location: "Location 1",
         },
       ],
     };
@@ -66,8 +72,6 @@ export default {
 .cards-container {
   margin-top: 50px;
   gap: 10px;
-
-  /* justify-content: space-between; */
 }
 
 .card{

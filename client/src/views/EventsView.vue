@@ -3,7 +3,7 @@
     <div>
       <MDBBtn color="dark" rounded>Create event</MDBBtn>
       <div class="cards-container d-flex flex-wrap">
-        <li v-for="event in events" :key="event.name">
+        <div v-for="event in events" :key="event.name">
           <MDBCard class="card">
           <a v-mdb-ripple="{ color: 'light' }">
             <MDBCardImg src="https://mdbootstrap.com/img/new/standard/nature/184.webp" top alt="..." />
@@ -11,24 +11,20 @@
           <MDBCardBody>
             <MDBCardTitle>{{ event.name }}</MDBCardTitle>
             <MDBCardText>
-              Some quick example text to build on the card title and make up the bulk of the
-              card's content.
+              Date: {{ event.startDate }} - {{ event.endDate }}
+              <br>
+              Location: {{ event.location }}
             </MDBCardText>
             <MDBBtn tag="a" href="#!" color="primary">Check out</MDBBtn>
           </MDBCardBody>
           </MDBCard>
-        </li>
+        </div>
       </div>
     </div>  
 </template>
 
 <script>
 import {
-    // MDBNavbar,
-    // MDBNavbarToggler,
-    // MDBNavbarNav,
-    // MDBNavbarItem,
-    // MDBCollapse,
     MDBBtn,
     MDBCard,
     MDBCardBody,
@@ -45,11 +41,6 @@ export default {
     msg: String
   },
   components: {
-      // MDBNavbar,
-      // MDBNavbarToggler,
-      // MDBNavbarNav,
-      // MDBNavbarItem,
-      // MDBCollapse,
       MDBBtn,
       MDBCard,
       MDBCardBody,
@@ -64,23 +55,17 @@ export default {
     return {
       events: [
         {
-          name: 'Event 1',
+          name: "Event 1",
+          startDate: "01/01/2019",
+          endDate: "02/01/2019",
+          location: "Location 1",
         },
         {
-          name: 'Event 2',
+          name: "Event 2",
+          startDate: "01/01/2019",
+          endDate: "02/01/2019",
+          location: "Location 1",
         },
-        {
-          name: 'Event 1',
-        },
-        {
-          name: 'Event 2',
-        },
-        {
-          name: 'Event 1',
-        },
-        {
-          name: 'Event 2',
-        }
       ]
     }
   },
