@@ -14,6 +14,15 @@
             <MDBNavbarItem to="/myTickets" active>
               My tickets
             </MDBNavbarItem>
+            <MDBNavbarItem to="/cart" active>
+              Cart
+            </MDBNavbarItem>
+            <div class="d-flex align-items-center">
+            <!-- Icon -->
+            <!-- <a class="text-reset me-3" href="#">
+              <i class="fas fa-shopping-cart"></i>
+            </a> -->
+            </div>
           </MDBNavbarNav>
     </MDBNavbar>
 </template>
@@ -39,8 +48,14 @@ export default {
 
 <style> 
 .nav {
-    margin-right: 100px;
-    margin-left: 100px;
+    margin-top: 0px;
+    /* margin-right: 100px; */
+    /* margin-left: 100px; */
     margin-bottom: 20px;
+}
+a.active {
+  color: #f1a80a;
+  border-color: #f1a80a;
+  /* background-color: #1a037e; */
 }
 </style>
