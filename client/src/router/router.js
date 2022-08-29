@@ -4,12 +4,19 @@ import CreateEvent from '../views/CreateEvent.vue'
 import MyEvents from '../views/MyEvents.vue'
 import MarketPlace from '../views/Marketplace.vue'
 import MyTickets from '../views/MyTickets.vue'
+import EventDetails from '../views/EventDetails.vue'
+import TicketDetails from '../views/TicketDetails.vue'
+import CartView from '../views/CartView.vue'
 
 const routes = [
     { path: '/', redirect: '/home' },
     {
       path: '/home',
       component: EventsView,
+    },
+    {
+      path: '/home/:eventId',
+      component: EventDetails,
     },
     {
       path: '/createEvent',
@@ -24,9 +31,23 @@ const routes = [
       component: MarketPlace,
     },
     {
+      path: '/market/:ticketId',
+      component: TicketDetails,
+      props: { isForSale: true},
+    },
+    {
       path: '/myTickets',
       component: MyTickets,
-    }
+    },
+    {
+      path: '/myTickets/:ticketId',
+      component: TicketDetails,
+      props: { isForSale: false },
+    },
+    {
+      path: '/cart',
+      component: CartView,
+    },
 ];
 
 
