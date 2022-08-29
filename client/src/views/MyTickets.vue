@@ -14,7 +14,7 @@
               <br>
               Price: {{ ticket.price }}
             </MDBCardText>
-            <MDBBtn tag="a" href="#!" color="primary">Check out</MDBBtn>
+            <router-link :to="'/myTickets/'+ticket.id"><MDBBtn tag="a" color="primary">Check out</MDBBtn></router-link>
           </MDBCardBody>
           </MDBCard>
         </div>
@@ -50,6 +50,7 @@ export default {
     return {
       tickets: [
           {
+            id: 1,
             event: {
                 name: "Event 1",
             },
@@ -69,7 +70,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .cards-container {
   margin-top: 50px;
   gap: 10px;

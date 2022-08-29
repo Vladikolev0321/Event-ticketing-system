@@ -14,6 +14,7 @@
           <MDBCardTitle>{{ event.name }}</MDBCardTitle>
           <MDBCardText>
             Date: {{ event.startDate }} - {{ event.endDate }}
+            <br>
             Location: {{ event.location }}
           </MDBCardText>
           <MDBBtn tag="a" href="#!" color="primary">Check out</MDBBtn>
@@ -68,7 +69,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .cards-container {
   margin-top: 50px;
   gap: 10px;

@@ -1,7 +1,7 @@
 <template>
     <h1>Events</h1>
     <div>
-      <MDBBtn color="dark" rounded>Create event</MDBBtn>
+      <router-link :to="'/createEvent'"><MDBBtn color="dark" rounded>Create event</MDBBtn></router-link>
       <div class="cards-container d-flex flex-wrap">
         <div v-for="event in events" :key="event.name">
           <MDBCard class="card">
@@ -15,7 +15,7 @@
               <br>
               Location: {{ event.location }}
             </MDBCardText>
-            <MDBBtn tag="a" href="#!" color="primary">Check out</MDBBtn>
+            <router-link :to="'/home/'+event.id"><MDBBtn tag="a" color="primary">Check out</MDBBtn></router-link>
           </MDBCardBody>
           </MDBCard>
         </div>
@@ -55,12 +55,14 @@ export default {
     return {
       events: [
         {
+          id: 1,
           name: "Event 1",
           startDate: "01/01/2019",
           endDate: "02/01/2019",
           location: "Location 1",
         },
         {
+          id: 2,
           name: "Event 2",
           startDate: "01/01/2019",
           endDate: "02/01/2019",
@@ -78,25 +80,8 @@ export default {
   margin-top: 50px;
   gap: 10px;
 }
-
 .card{
   height: 400px;
   width: 350px;
-}
-
-
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
 }
 </style>
