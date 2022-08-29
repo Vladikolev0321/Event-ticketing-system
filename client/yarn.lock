@@ -979,6 +979,122 @@
     "minimatch" "^3.0.4"
     "strip-json-comments" "^3.1.1"
 
+"@formkit/core@1.0.0-beta.10":
+  "integrity" "sha512-L6dLPUFLjhaqKv6f/cm+YYk1bfDI7fY8nDbEh8XHqmFVIPMf4OeBAEUfORFAh5PmCcIlgtDKvPkRwopVkxEvxA=="
+  "resolved" "https://registry.npmjs.org/@formkit/core/-/core-1.0.0-beta.10.tgz"
+  "version" "1.0.0-beta.10"
+  dependencies:
+    "@formkit/utils" "1.0.0-beta.10"
+
+"@formkit/dev@1.0.0-beta.10":
+  "integrity" "sha512-SS008mrwNycd+icZjRPom6ji98ZbJ+IO3w5+VWla9+s7h4h/FkDLmL2pnSsWpVW+Mp3AfyGCItSNTLx7jM0m9g=="
+  "resolved" "https://registry.npmjs.org/@formkit/dev/-/dev-1.0.0-beta.10.tgz"
+  "version" "1.0.0-beta.10"
+  dependencies:
+    "@formkit/core" "1.0.0-beta.10"
+    "@formkit/utils" "1.0.0-beta.10"
+
+"@formkit/i18n@1.0.0-beta.10":
+  "integrity" "sha512-IWa1Nyi53Hk+pD9LXilRj0rmUUFHNI7exWXZpy0O2x+CMTnZz0sDrupVOXYoDGloFEWNUuScToYAp7YMGm1lgQ=="
+  "resolved" "https://registry.npmjs.org/@formkit/i18n/-/i18n-1.0.0-beta.10.tgz"
+  "version" "1.0.0-beta.10"
+  dependencies:
+    "@formkit/core" "1.0.0-beta.10"
+    "@formkit/utils" "1.0.0-beta.10"
+    "@formkit/validation" "1.0.0-beta.10"
+
+"@formkit/inputs@1.0.0-beta.10":
+  "integrity" "sha512-RiFJEJU28mdX2feN+mojl61jffGPUtFn2ICGRBI3RTdAHB2mvew2VWc+W/ZatfKx4dq++C2eoaCbNI29XKCOMQ=="
+  "resolved" "https://registry.npmjs.org/@formkit/inputs/-/inputs-1.0.0-beta.10.tgz"
+  "version" "1.0.0-beta.10"
+  dependencies:
+    "@formkit/core" "1.0.0-beta.10"
+
+"@formkit/observer@1.0.0-beta.10":
+  "integrity" "sha512-YJE4YjiB4jDq/5TeHB+Umidx4KJ2vhOmlsWBcGW4/Ph8L4i34wLT7s5UTB58L8JoQ0+bKToLwNRyR4qntck+3Q=="
+  "resolved" "https://registry.npmjs.org/@formkit/observer/-/observer-1.0.0-beta.10.tgz"
+  "version" "1.0.0-beta.10"
+  dependencies:
+    "@formkit/core" "1.0.0-beta.10"
+    "@formkit/utils" "1.0.0-beta.10"
+
+"@formkit/rules@1.0.0-beta.10":
+  "integrity" "sha512-V1e6JN3/1r0twH9bEfI2kjsZIGpDfq6ixj1ERTT2tnortzj2cVVhRMG2ZvCfpBOdUw3c+DqCFyLxLzPAWLkoXA=="
+  "resolved" "https://registry.npmjs.org/@formkit/rules/-/rules-1.0.0-beta.10.tgz"
+  "version" "1.0.0-beta.10"
+  dependencies:
+    "@formkit/core" "1.0.0-beta.10"
+    "@formkit/utils" "1.0.0-beta.10"
+    "@formkit/validation" "1.0.0-beta.10"
+
+"@formkit/themes@1.0.0-beta.10":
+  "integrity" "sha512-oFZq11JvGZQ7e/aGEstH7jcV/yYOzfCvscgS3NQD/C3/WsM0MTZNirBvK8jrt68uB4aZnzmDCEeb93HSJ0Rsyg=="
+  "resolved" "https://registry.npmjs.org/@formkit/themes/-/themes-1.0.0-beta.10.tgz"
+  "version" "1.0.0-beta.10"
+  dependencies:
+    "@formkit/core" "1.0.0-beta.10"
+
+"@formkit/utils@1.0.0-beta.10":
+  "integrity" "sha512-uMx2HKdyeFGNFuHckKuyW3ABYzrhgeoH2GO+gX94+hay4heWHpB65ZIdvEvCSBSxR83qfJ2k32USbW3AJlSQHg=="
+  "resolved" "https://registry.npmjs.org/@formkit/utils/-/utils-1.0.0-beta.10.tgz"
+  "version" "1.0.0-beta.10"
+
+"@formkit/validation@1.0.0-beta.10":
+  "integrity" "sha512-c+RS8dyQ4ZUvxkrUNa2sVgctBF8UaBPPkYXFEYkbmydMpB3mWrpv4CMsfMSfjtF0XlIkg/47hv2VZaESySsrbw=="
+  "resolved" "https://registry.npmjs.org/@formkit/validation/-/validation-1.0.0-beta.10.tgz"
+  "version" "1.0.0-beta.10"
+  dependencies:
+    "@formkit/core" "1.0.0-beta.10"
+    "@formkit/observer" "1.0.0-beta.10"
+
+"@formkit/vue@^1.0.0-beta.10":
+  "integrity" "sha512-78lyQXIjuigrZ7TSkiJA/xF/3aiNHBUhkd9bbsUxAketFNTqKXtINnfqvY/+4U1xOKhR2RAcMuDHTZin4TjlfA=="
+  "resolved" "https://registry.npmjs.org/@formkit/vue/-/vue-1.0.0-beta.10.tgz"
+  "version" "1.0.0-beta.10"
+  dependencies:
+    "@formkit/core" "1.0.0-beta.10"
+    "@formkit/dev" "1.0.0-beta.10"
+    "@formkit/i18n" "1.0.0-beta.10"
+    "@formkit/inputs" "1.0.0-beta.10"
+    "@formkit/observer" "1.0.0-beta.10"
+    "@formkit/rules" "1.0.0-beta.10"
+    "@formkit/themes" "1.0.0-beta.10"
+    "@formkit/utils" "1.0.0-beta.10"
+    "@formkit/validation" "1.0.0-beta.10"
+
+"@fortawesome/fontawesome-common-types@6.1.2":
+  "integrity" "sha512-wBaAPGz1Awxg05e0PBRkDRuTsy4B3dpBm+zreTTyd9TH4uUM27cAL4xWyWR0rLJCrRwzVsQ4hF3FvM6rqydKPA=="
+  "resolved" "https://registry.npmjs.org/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-6.1.2.tgz"
+  "version" "6.1.2"
+
+"@fortawesome/fontawesome-svg-core@^6.1.2":
+  "integrity" "sha512-853G/Htp0BOdXnPoeCPTjFrVwyrJHpe8MhjB/DYE9XjwhnNDfuBCd3aKc2YUYbEfHEcBws4UAA0kA9dymZKGjA=="
+  "resolved" "https://registry.npmjs.org/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-6.1.2.tgz"
+  "version" "6.1.2"
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.1.2"
+
+"@fortawesome/free-brands-svg-icons@^6.1.2":
+  "integrity" "sha512-b2eMfXQBsSxh52pcPtYchURQs6BWNh3zVTG8XH8Lv6V4kDhEg7D0kHN+K1SZniDiPb/e5tBlaygsinMUvetITA=="
+  "resolved" "https://registry.npmjs.org/@fortawesome/free-brands-svg-icons/-/free-brands-svg-icons-6.1.2.tgz"
+  "version" "6.1.2"
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.1.2"
+
+"@fortawesome/free-regular-svg-icons@^6.1.2":
+  "integrity" "sha512-xR4hA+tAwsaTHGfb+25H1gVU/aJ0Rzu+xIUfnyrhaL13yNQ7TWiI2RvzniAaB+VGHDU2a+Pk96Ve+pkN3/+TTQ=="
+  "resolved" "https://registry.npmjs.org/@fortawesome/free-regular-svg-icons/-/free-regular-svg-icons-6.1.2.tgz"
+  "version" "6.1.2"
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.1.2"
+
+"@fortawesome/free-solid-svg-icons@^6.1.2":
+  "integrity" "sha512-lTgZz+cMpzjkHmCwOG3E1ilUZrnINYdqMmrkv30EC3XbRsGlbIOL8H9LaNp5SV4g0pNJDfQ4EdTWWaMvdwyLiQ=="
+  "resolved" "https://registry.npmjs.org/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-6.1.2.tgz"
+  "version" "6.1.2"
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "6.1.2"
+
 "@hapi/hoek@^9.0.0":
   "integrity" "sha512-/c6rf4UJlmHlC9b5BaNvzAcFv7HZ2QHaV0D4/HNlBdvFnvQq8RI4kYdhyPCl7Xj+oWvTWQ8ujhqS53LIgAe6KQ=="
   "resolved" "https://registry.npmjs.org/@hapi/hoek/-/hoek-9.3.0.tgz"
@@ -6022,7 +6138,7 @@
   "resolved" "https://registry.npmjs.org/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz"
   "version" "1.9.1"
 
-"vue@*", "vue@^2 || ^3.2.13", "vue@^3.2.0", "vue@^3.2.37", "vue@3.2.37":
+"vue@*", "vue@^2 || ^3.2.13", "vue@^3.2.0", "vue@^3.2.1", "vue@^3.2.37", "vue@3.2.37":
   "integrity" "sha512-bOKEZxrm8Eh+fveCqS1/NkG/n6aMidsI6hahas7pa0w/l7jkbssJVsRhVDs07IdDq7h9KHswZOgItnwJAgtVtQ=="
   "resolved" "https://registry.npmjs.org/vue/-/vue-3.2.37.tgz"
   "version" "3.2.37"
