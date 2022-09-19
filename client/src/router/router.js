@@ -1,11 +1,52 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import EventsView from '../views/EventsView.vue'
+import CreateEvent from '../views/CreateEvent.vue'
+import MyEvents from '../views/MyEvents.vue'
+import MarketPlace from '../views/Marketplace.vue'
+import MyTickets from '../views/MyTickets.vue'
+import EventDetails from '../views/EventDetails.vue'
+import TicketDetails from '../views/TicketDetails.vue'
+import CartView from '../views/CartView.vue'
 
 const routes = [
     { path: '/', redirect: '/home' },
     {
       path: '/home',
-      component: HomeView,
+      component: EventsView,
+    },
+    {
+      path: '/home/:eventId',
+      component: EventDetails,
+    },
+    {
+      path: '/createEvent',
+      component: CreateEvent,
+    },
+    {
+      path: '/myEvents',
+      component: MyEvents,
+    },
+    {
+      path: '/market',
+      component: MarketPlace,
+    },
+    {
+      path: '/market/:ticketId',
+      component: TicketDetails,
+      props: { isForSale: true},
+    },
+    {
+      path: '/myTickets',
+      component: MyTickets,
+    },
+    {
+      path: '/myTickets/:ticketId',
+      component: TicketDetails,
+      props: { isForSale: false },
+    },
+    {
+      path: '/cart',
+      component: CartView,
     },
 ];
 
