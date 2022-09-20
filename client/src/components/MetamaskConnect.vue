@@ -78,6 +78,7 @@ export default {
     },
     beforeMount() {
         this.metamaskClientCheck();
+        this.checkIfConnected();
     },
 
 

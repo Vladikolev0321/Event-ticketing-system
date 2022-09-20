@@ -17,7 +17,7 @@
             <MDBNavbarItem to="/cart" active>
               Cart
             </MDBNavbarItem>
-            <MDBNavbarItem to="#" onclick="" active>
+            <MDBNavbarItem active>
               <!-- <MDBBtn>Connect to wallet</MDBBtn> -->
               <MetamaskConnect></MetamaskConnect>
             </MDBNavbarItem>
