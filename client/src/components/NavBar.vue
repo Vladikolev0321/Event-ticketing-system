@@ -17,12 +17,11 @@
             <MDBNavbarItem to="/cart" active>
               Cart
             </MDBNavbarItem>
-            <div class="d-flex align-items-center">
-            <!-- Icon -->
-            <!-- <a class="text-reset me-3" href="#">
-              <i class="fas fa-shopping-cart"></i>
-            </a> -->
-            </div>
+            <MDBNavbarItem to="#" onclick="" active>
+              <!-- <MDBBtn>Connect to wallet</MDBBtn> -->
+              <MetamaskConnect></MetamaskConnect>
+            </MDBNavbarItem>
+            
           </MDBNavbarNav>
     </MDBNavbar>
 </template>
@@ -33,16 +32,25 @@ import {
     MDBNavbarToggler,
     MDBNavbarNav,
     MDBNavbarItem,
+    // MDBBtn
 } from 'mdb-vue-ui-kit';
+import MetamaskConnect from './MetamaskConnect.vue';
 
 export default {
   name: 'NavBar',
+  data() {
+    return {
+      // : false,
+    };
+  },
   components: {
     MDBNavbar,
     MDBNavbarToggler,
     MDBNavbarNav,
     MDBNavbarItem,
- },
+    // MDBBtn,
+    MetamaskConnect
+},
 }
 </script>
 
