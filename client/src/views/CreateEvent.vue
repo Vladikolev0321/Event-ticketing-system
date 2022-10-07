@@ -163,7 +163,9 @@ export default {
       let ticketHashes = [];
       let amounts = [];
       let prices = [];
-      event.categories.forEach(async category => {
+      // event.categories.forEach(async category => {
+      for(let i = 0; i < event.categories.length; i++) {
+        const category = event.categories[i];
         // let ticketId;
         if(category.typeTickets == "uniform") {
           category.totalTickets = category.amount;
@@ -192,7 +194,7 @@ export default {
             console.log(category.price);
           }
         }
-      });
+      }
 
       // const amounts = event.categories.map((category) => category.amount);
       // const prices = event.categories.map((category) => category.price);

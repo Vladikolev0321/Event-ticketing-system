@@ -31,7 +31,7 @@ export default {
       const web3 = await new Web3(window.ethereum);
       const eventManager = new web3.eth.Contract(
         EventManager.abi,
-        "0x1A381048884a238c6C59fef1f5Fe2ba1D9A367AF",
+        "0x5A003fef8bFcDc4bda2fc8853ed8b113DFf8Ec46",
       );
       const dex = new web3.eth.Contract(
         DEX.abi,
