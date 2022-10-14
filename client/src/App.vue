@@ -15,10 +15,9 @@
 import NavBar from './components/NavBar.vue';
 import DEX from '../../../Event-ticketing-system-smart-contracts/Event-ticketing-system/build/contracts/DEX.json';
 import EventManager from '../../../Event-ticketing-system-smart-contracts/Event-ticketing-system/build/contracts/EventManager.json';
-// import Moralis from 'moralis';
-const Moralis = require("moralis-v1");
-// import Moralis from 'moralis/dist/moralis.min.js';
+import Web3 from 'web3'
 
+const Moralis = require("moralis-v1");
 
 export default {
   name: 'App',
@@ -31,7 +30,7 @@ export default {
       const web3 = await new Web3(window.ethereum);
       const eventManager = new web3.eth.Contract(
         EventManager.abi,
-        "0x5A003fef8bFcDc4bda2fc8853ed8b113DFf8Ec46",
+        "0x8bd6B3F34675774000CA7cb525c488Fb23BBFDee",
       );
       const dex = new web3.eth.Contract(
         DEX.abi,
@@ -41,24 +40,80 @@ export default {
       this.$store.commit('setDex', dex);
     },
     async loadEvents() {
-      const eventsCount = this.$store.state.eventManager.methods.eventsCount().call();
+      // const ticketsCount = await this.$store.state.eventManager.methods.ticketsCount().call();
+
+      const eventsCount = await this.$store.state.eventManager.methods.eventsCount().call();
+      console.log(eventsCount);
       let events = [];
-      for(let i = 1; i <= eventsCount; i++) {
-        const event = await this.$store.state.eventManager.methods.getEvent(i).call();
-        const uri = await this.$store.state.eventManager.methods.uri(i).call();
+      for(let i = 0; i < eventsCount; i++) {
+        // const event = await this.$store.state.eventManager.methods.getEvent(i).call();
+        const eventId = await this.$store.state.eventManager.methods.eventsIds(i).call();
+        // const event = await this.$store.state.eventManager.methods.getEvent(i).call();
+
+        const uri = await this.$store.state.eventManager.methods.uri(eventId).call();
         const response = await fetch(uri);
         const metadata = await response.json();
+        console.log(metadata);
+
+        const ticketsData = await this.$store.state.eventManager.methods.getEventTickets(eventId).call();
+        console.log(ticketsData);
+        const tickets = [];
+        for(let j = 0; j < ticketsData[0].length; j++) {
+          const ticketUri = await this.$store.state.eventManager.methods.uri(ticketsData[0][j]).call();
+          
+          let ticketResponse;
+          let ticketMetadata;
+          console.log(ticketUri);
+          let ticketCategory = "";
+          let ticketPlace = "";
+          if(ticketUri != "https://ipfs.moralis.io:2053/ipfs/"){
+            ticketResponse = await fetch(ticketUri);
+            ticketMetadata = await ticketResponse.json();
+            ticketCategory = ticketMetadata.category;
+            ticketPlace = ticketMetadata.place;
+            console.log(ticketMetadata);
+          }
+
+          tickets.push({
+            id: ticketsData[0][j],
+            // name: ticketMetadata.name,
+            category: ticketCategory,
+            place: ticketPlace,
+            amount: ticketsData[1][j],
+            price: ticketsData[2][j],
+            
+          });
+        }
         
         events.push({
-          id: event[0],
+          id: eventId,
           name: metadata.name,
           description: metadata.description,
-          tickets: metadata.tickets, // ? get from contract
+          // tickets: metadata.tickets, // ? get from contract
+          startDate: metadata.startDateTime,
+          endDate: metadata.endDateTime,
+          location: metadata.location,
+          tickets: tickets,
           // ticketsSold: event[5],
           // owner: event[6],
         });
       }
       this.$store.commit('setEvents', events);
+    },
+    async loadMyEvents() {
+      const web3 = new Web3(window.ethereum);
+      const accounts = await web3.eth.getAccounts();
+
+      const allEvents = this.$store.state.events;
+      const myEvents = [];
+      for(let i = 0; i < allEvents.length; i++) {
+        const balance = await this.$store.state.eventManager.methods.balanceOf(accounts[0], allEvents[i].id).call()
+        if(balance > 0) {
+          myEvents.push(allEvents[i]);
+        }
+      }
+
+      this.$store.commit('setMyEvents', myEvents);
     },
     async loadTicketsForSale() {
       const ticketsCount = await this.$store.state.dex.methods.listingCount().call();
@@ -90,11 +145,14 @@ export default {
     this.$store.commit('setMoralis', Moralis);
   },
   },
-  beforeMount() {
-    this.connectToContracts();
-    // this.loadEvents();
+  async beforeMount() {
+    await this.connectToContracts();
     // this.loadTicketsForSale();
-    this.loadMoralis();
+    await this.loadMoralis();
+    await this.loadEvents();
+    await this.loadMyEvents();
+
+
   },
 }
 </script>
