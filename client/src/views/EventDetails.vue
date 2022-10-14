@@ -23,8 +23,8 @@
                 <br>
                 Category tickets:
                 <ul>
-                    <li :key="ticket.id" v-for="ticket in event.categoriesTickets">
-                        {{ ticket.name }} - Type: {{ ticket.type }} Price:{{ ticket.price }} 
+                    <li :key="ticket.id" v-for="ticket in event.tickets">
+                        {{ ticket.name }} - Category:{{ ticket.category }} Type: {{ ticket.type }} Price:{{ ticket.price }} Amount: {{ ticket.amount }} 
                     <MDBBtn tag="a" color="primary" href="https://mdbootstrap.com/">Buy</MDBBtn>
                     </li>
                 </ul>
@@ -126,15 +126,16 @@ export default {
   },
   created() {
     const eventId = this.$route.params.eventId;
-    const event = this.events.find((e) => e.id == eventId);
-    this.event = event;
+    const event = this.$store.state.events.find((e) => e.id == eventId);
+    this.event = event;  
+    console.log(event.tickets);
   },
 };
 </script>
 
 <style scoped>
 .card {
-  height: 400px;
+  height: 600px;
   width: 700px;
   margin: auto;
 }
