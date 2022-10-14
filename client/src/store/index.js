@@ -11,6 +11,7 @@ export default createStore({
     accountTickets: [],
     ticketsInCart: [],
     Moralis: null,
+    myEvents: [],
   },
   getters: {
   },
@@ -45,6 +46,9 @@ export default createStore({
     setMoralis(state, payload) {
         state.Moralis = payload;
     },
+    setMyEvents(state, payload) {
+        state.myEvents = payload;
+    }
   },
   actions: {
   },
