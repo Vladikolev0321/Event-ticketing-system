@@ -30,7 +30,7 @@ export default {
       const web3 = await new Web3(window.ethereum);
       const eventManager = new web3.eth.Contract(
         EventManager.abi,
-        "0x8bd6B3F34675774000CA7cb525c488Fb23BBFDee",
+        "0x6fEB3aD001C3FeFa2bF7671BCfBA2065FE1E67bc",
       );
       const dex = new web3.eth.Contract(
         DEX.abi,
@@ -107,7 +107,7 @@ export default {
       const allEvents = this.$store.state.events;
       const myEvents = [];
       for(let i = 0; i < allEvents.length; i++) {
-        const balance = await this.$store.state.eventManager.methods.balanceOf(accounts[0], allEvents[i].id).call()
+        const balance = await this.$store.state.eventManager.methods.balanceOf(accounts[0], allEvents[i].id).call();
         if(balance > 0) {
           myEvents.push(allEvents[i]);
         }

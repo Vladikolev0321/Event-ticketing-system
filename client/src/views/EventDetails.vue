@@ -25,7 +25,7 @@
                 <ul>
                     <li :key="ticket.id" v-for="ticket in event.tickets">
                         {{ ticket.name }} - Category:{{ ticket.category }} Type: {{ ticket.type }} Price:{{ ticket.price }} Amount: {{ ticket.amount }} 
-                    <MDBBtn tag="a" color="primary" href="https://mdbootstrap.com/">Buy</MDBBtn>
+                    <MDBBtn tag="a" color="primary" @click="addTicketToCart(ticket)">Buy</MDBBtn>
                     </li>
                 </ul>
                 </p>
@@ -123,6 +123,22 @@ export default {
         },
       ],
     };
+  },
+  methods:{
+    addTicketToCart(ticket){
+      console.log(ticket);
+      let ticketToAdd = {
+        id: ticket.id,
+        category: ticket.category,
+        price: ticket.price,
+        amount: ticket.amount,
+        place: ticket.place,
+      };
+      if(ticketToAdd.amount > 1){
+        ticketToAdd.amount = 1;
+      }
+      this.$store.commit('addTicketToCart', ticketToAdd);
+    }
   },
   created() {
     const eventId = this.$route.params.eventId;

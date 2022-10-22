@@ -48,7 +48,7 @@ export default createStore({
     },
     setMyEvents(state, payload) {
         state.myEvents = payload;
-    }
+    },
   },
   actions: {
   },
