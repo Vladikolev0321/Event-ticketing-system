@@ -4,7 +4,7 @@
     <ul class="checkout-list">
       <transition-group name="fade">
         <li
-          v-for="(product, index) in getProductsInCart()"
+          v-for="(product, index) in /*getProductsInCart()*/ ticketsInCart"
           :key="index"
           class="checkout-product"
         >
@@ -20,7 +20,7 @@
       <router-link to="./">Back to list of products</router-link>
     </div>
     <h3 class="total" v-if="hasProduct()">Total: R$ {{ totalPrice() }}, 00</h3>
-    <MDBBtn tag="a" color="primary" href="https://mdbootstrap.com/">Buy</MDBBtn>
+    <MDBBtn tag="a" color="primary" @click="buyTickets()">Buy</MDBBtn>
   </div>
 </template>
 
@@ -29,6 +29,7 @@ import {
   MDBBtn,
 }
 from "mdb-vue-ui-kit";
+import Web3 from 'web3';
 
 export default {
   name: 'CartView',
@@ -37,7 +38,7 @@ export default {
   },
   data() {
     return {
-      products: [
+      ticketsInCart: [
         {
           id: 1,
           name: 'Ticket 1',
@@ -57,22 +58,43 @@ export default {
   },
   methods: {
     getProductsInCart() {
-      return this.products.filter(product => product.inCart);
+      // return this.ticketsInCart.filter(product => product.inCart);
+      return this.ticketsInCart;
     },
     hasProduct() {
       return this.getProductsInCart().length > 0;
     },
     totalPrice() {
       return this.getProductsInCart().reduce((total, product) => {
-        return total + product.price;
+        return total + parseInt(product.price);
       }, 0);
     },
     remove(index) {
-      this.products.splice(index, 1);
+      this.ticketsInCart.splice(index, 1);
+      this.$store.commit('removeFromCart', index);
     },
+    async buyTickets() {
+      const web3 = new Web3(window.ethereum);
+      const accounts = await web3.eth.getAccounts();
+
+
+      const ticketIds = this.ticketsInCart.map(ticket => parseInt(ticket.id));
+      const amounts = this.ticketsInCart.map(ticket => ticket.amount);
+      const prices = this.ticketsInCart.map(ticket => parseInt(ticket.price));
+
+      console.log(ticketIds);
+      console.log(amounts);
+      console.log(prices);
+      
+      const tx = await this.$store.state.eventManager.methods.buyTickets(ticketIds, amounts, prices).send({from: accounts[0], value: this.totalPrice()});
+      console.log(tx);
+    }
   },
   created() {
-    // this.products = this.$store.state.products;
+    this.ticketsInCart = this.$store.state.ticketsInCart;
+    this.ticketsInCart.forEach(ticket => {
+      ticket.amount = 1;
+    });
   },
 };
 </script>
