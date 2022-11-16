@@ -18,6 +18,9 @@
     "bootstrap": "^5.2.0",
     "bootstrap-vue": "^2.22.0",
     "core-js": "^3.8.3",
+    "dotenv": "^16.0.3",
+    "ethers": "^5.7.2",
+    "fs": "^0.0.1-security",
     "mdb-vue-ui-kit": "^2.0.0",
     "moralis": "^2.5.5",
     "moralis-v1": "^1.11.0",
@@ -56,5 +59,10 @@
     "last 2 versions",
     "not dead",
     "not ie 11"
-  ]
+  ],
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  }
 }
