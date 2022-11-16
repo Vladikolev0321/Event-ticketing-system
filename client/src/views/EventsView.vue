@@ -71,6 +71,9 @@ export default {
       ]
     }
   },
+  created() {
+    this.events = this.$store.state.events;
+  },
 }
 </script>
 

@@ -11,19 +11,22 @@
         </div>
         <div class="col-md-8">
             <div class="card-body">
-                <h5 class="card-title">Event: {{ ticket.event.name }}</h5>
+                <!-- <h5 class="card-title">Event: {{ ticket.event.name }}</h5> -->
+                <h5 class="card-title">Event: aa</h5>
                 <p class="card-text">
-                Category ticket: {{ ticket.categoryName }}
+                Category ticket: {{ ticket.category }}
+                <br>
+                Amount: {{ ticket.amount }}
                 <br>
                 Price: {{ ticket.price }}
                 </p>
             </div>
         </div>
         <div v-if="isForSale">  
-            <MDBBtn tag="a" color="primary">Buy</MDBBtn>
+            <MDBBtn tag="a" color="primary" @click="buyTicket">Buy</MDBBtn>
         </div>
         <div v-else>
-            <MDBBtn tag="a" color="primary">Sell</MDBBtn>
+            <MDBBtn tag="a" color="primary" @click="sellTicket">Sell</MDBBtn>
         </div>
     </div>
    </div>
@@ -31,6 +34,8 @@
 
 <script>
 
+const Web3 = require('web3');
+const web3 = new Web3(window.ethereum);
 import {
     MDBBtn,
  } from "mdb-vue-ui-kit";
@@ -66,10 +71,32 @@ export default {
             isForSales: false,
         };
     },
+    methods: {
+        async sellTicket() {
+            const accounts = await web3.eth.getAccounts();
+            await this.$store.state.eventManager.methods.setApprovalForAll(this.$store.state.dexAddress, true).send({ from: accounts[0] });
+            const ticketAmount = 1;
+            const tx = await this.$store.state.dex.methods.listTicket(this.$store.state.eventManagerAddress, this.ticket.id, /*parseInt(this.ticket.amount)*/ticketAmount, parseInt(this.ticket.price)).send({ from: accounts[0] });
+            console.log(tx);
+        },
+        async buyTicket() {
+            const accounts = await web3.eth.getAccounts();
+            const tx = await this.$store.state.dex.methods.buyTicket(this.ticket.listingId).send({ from: accounts[0], value: parseInt(this.ticket.price) });
+            console.log(tx);
+        },
+    },
     created() {
-        const ticketId = this.$route.params.ticketId;
-        const ticket = this.tickets.find((t) => t.id == ticketId);
-        this.ticket = ticket;
+        if(this.isForSale){
+            const listingId = this.$route.params.listingId;
+            const ticket = this.$store.state.ticketsForSale.find((t) => t.listingId == listingId);
+            this.ticket = ticket;
+            /// to think
+        } else {
+            const ticketId = this.$route.params.ticketId;
+            const ticket = this.$store.state.myTickets.find((t) => t.id == ticketId);
+            this.ticket = ticket;
+        } 
+        
         console.log(this.isForSale);
         // this.isForSale = this.$route.params.isForSale;
     },

@@ -8,13 +8,13 @@
             <MDBCardImg src="https://mdbootstrap.com/img/new/standard/nature/184.webp" top alt="..." />
           </a>
           <MDBCardBody>
-            <MDBCardTitle>Ticket for {{ ticket.event.name }}</MDBCardTitle>
+            <MDBCardTitle>Ticket for Event</MDBCardTitle>
             <MDBCardText>
-              Category: {{ ticket.categoryName }}
+              Category: {{ ticket.category }}
               <br>
               Price: {{ ticket.price }}
             </MDBCardText>
-            <router-link :to="'/market/'+ticket.id"><MDBBtn tag="a" color="primary">Check out</MDBBtn></router-link>
+            <router-link :to="'/market/'+ticket.listingId"><MDBBtn tag="a" color="primary">Check out</MDBBtn></router-link>
           </MDBCardBody>
           </MDBCard>
         </div>
@@ -67,6 +67,9 @@ import {
           },
         ],
       };
+    },
+    created() {
+      this.tickets = this.$store.state.ticketsForSale;
     },
   };
 </script>

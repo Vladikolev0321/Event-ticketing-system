@@ -7,6 +7,7 @@ import MyTickets from '../views/MyTickets.vue'
 import EventDetails from '../views/EventDetails.vue'
 import TicketDetails from '../views/TicketDetails.vue'
 import CartView from '../views/CartView.vue'
+import EditEvent from '../views/EditEvent.vue'
 
 const routes = [
     { path: '/', redirect: '/home' },
@@ -27,11 +28,15 @@ const routes = [
       component: MyEvents,
     },
     {
+      path: '/myEvents/:eventId',
+      component: EditEvent,
+    },
+    {
       path: '/market',
       component: MarketPlace,
     },
     {
-      path: '/market/:ticketId',
+      path: '/market/:listingId',
       component: TicketDetails,
       props: { isForSale: true},
     },

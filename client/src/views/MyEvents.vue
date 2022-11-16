@@ -17,7 +17,7 @@
             <br>
             Location: {{ event.location }}
           </MDBCardText>
-          <MDBBtn tag="a" href="#!" color="primary">Check out</MDBBtn>
+          <router-link :to="'/myEvents/'+event.id"><MDBBtn tag="a" color="primary">Edit event</MDBBtn></router-link>
         </MDBCardBody>
       </MDBCard>
     </div>
@@ -65,6 +65,9 @@ export default {
         },
       ],
     };
+  },
+  created() {
+    this.events = this.$store.state.myEvents;
   },
 };
 </script>
