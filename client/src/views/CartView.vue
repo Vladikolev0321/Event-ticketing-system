@@ -9,8 +9,9 @@
           class="checkout-product"
         >
           <img :src="product.image" alt="" class="product-image" />
-          <h3 class="product-name">{{ product.name }}</h3>
-          <span class="product-price">R$ {{ product.price }},00 </span>
+          <h3 class="product-name">Event name:{{ product.eventName }} - {{ product.category }} Place:{{ product.place }}</h3>
+          <!-- <span class="product-category">{{ product.category }}</span> -->
+          <span class="product-price">{{ product.price }},00 </span>
           <button class="product-remove" @click="remove(index)">X</button>
         </li>
       </transition-group>
@@ -19,7 +20,7 @@
       <h3>No products...</h3>
       <router-link to="./">Back to list of products</router-link>
     </div>
-    <h3 class="total" v-if="hasProduct()">Total: R$ {{ totalPrice() }}, 00</h3>
+    <h3 class="total" v-if="hasProduct()">Total: {{ totalPrice() }}, 00</h3>
     <MDBBtn tag="a" color="primary" @click="buyTickets()">Buy</MDBBtn>
   </div>
 </template>

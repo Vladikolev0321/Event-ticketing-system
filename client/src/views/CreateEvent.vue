@@ -53,7 +53,6 @@
             <label for="endPlace">End place:</label>
             <input type="number" v-model="category.endPlace" required>
           </div>
-          <!-- <input type="text" v-model="category.typeTickets" required> -->
           <label for="price">Price per ticket</label>
           <input type="number" v-model="category.price" required>
           <label for="amount">Amount tickets</label>
@@ -157,21 +156,16 @@ export default {
       const web3 = new Web3(window.ethereum);
       const accounts = await web3.eth.getAccounts();
       console.log(accounts[0]);
-      // console.log(this.$store.state.eventManager);
 
-      // let ticketIds = [];
       let ticketHashes = [];
       let amounts = [];
       let prices = [];
-      // event.categories.forEach(async category => {
+
       for(let i = 0; i < event.categories.length; i++) {
         const category = event.categories[i];
-        // let ticketId;
         if(category.typeTickets == "uniform") {
           category.totalTickets = category.amount;
           amounts.push(category.amount);
-          // ticketId = event.name + Math.floor(Math.random() * 100);
-          // ticketIds.push(ticketId);
           ticketHashes.push("");
           prices.push(category.price);
         } else {
@@ -196,22 +190,12 @@ export default {
         }
       }
 
-      // const amounts = event.categories.map((category) => category.amount);
-      // const prices = event.categories.map((category) => category.price);
-      // console.log("Ticket "ticketIds);
       console.log("Amounts:", amounts);
       console.log("Prices:", prices);
       console.log("TicketHashes:", ticketHashes);
 
 
       console.log("BeforeEvent:")
-      // // await this.$store.state.eventManager.methods.createEvent(accounts[0], uint256[] memory ids, uint256[] memory amounts, uint256[] memory prices);
-      // const tx = await this.$store.state.eventManager.methods.createEvent(accounts[0], [1], [2], [3]).send({ from: accounts[0] });
-      // const tx = await this.$store.state.eventManager.methods.createEvent(accounts[0], eventHash, ticketHashes, amounts, prices).send({ from: accounts[0] });
-
-      // console.log(tx);
-      // save metadata to blockchain
-      // save event to blockchain
       return { amounts: amounts, prices: prices, ticketHashes: ticketHashes, eventHash: eventHash };
     },
     async createEvent(event){
