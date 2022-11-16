@@ -8,7 +8,6 @@
             <MDBCardImg src="https://mdbootstrap.com/img/new/standard/nature/184.webp" top alt="..." />
           </a>
           <MDBCardBody>
-            <!-- <MDBCardTitle>Ticket for {{ ticket.event.name }}</MDBCardTitle> -->
             <MDBCardTitle>Ticket for AAS</MDBCardTitle>
             <MDBCardText>
               Category: {{ ticket.category }}
