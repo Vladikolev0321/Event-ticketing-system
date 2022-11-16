@@ -36,7 +36,7 @@ const routes = [
       component: MarketPlace,
     },
     {
-      path: '/market/:ticketId',
+      path: '/market/:listingId',
       component: TicketDetails,
       props: { isForSale: true},
     },
