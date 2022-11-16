@@ -8,9 +8,12 @@
             <MDBCardImg src="https://mdbootstrap.com/img/new/standard/nature/184.webp" top alt="..." />
           </a>
           <MDBCardBody>
-            <MDBCardTitle>Ticket for {{ ticket.event.name }}</MDBCardTitle>
+            <!-- <MDBCardTitle>Ticket for {{ ticket.event.name }}</MDBCardTitle> -->
+            <MDBCardTitle>Ticket for AAS</MDBCardTitle>
             <MDBCardText>
-              Category: {{ ticket.categoryName }}
+              Category: {{ ticket.category }}
+              <br>
+              Amount: {{ ticket.amount }}
               <br>
               Price: {{ ticket.price }}
             </MDBCardText>
@@ -66,6 +69,9 @@ export default {
           },
         ],
     };
+  },
+  created() {
+    this.tickets = this.$store.state.myTickets;
   },
 };
 </script>
